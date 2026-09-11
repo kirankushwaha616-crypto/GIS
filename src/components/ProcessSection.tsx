@@ -17,53 +17,60 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({ onStartProject }
   };
 
   return (
-    <section id="process" className="py-20 lg:py-32 border-b border-[#E8E2D7] bg-[#FBF9F5]">
+    <section id="process" className="py-24 lg:py-40 bg-[#1C1B19] border-b border-[#322F2A]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-[#E8E2D7]">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 animate-fade-in-up">
           <div>
-            <div className="inline-flex items-center gap-2 mb-3">
-              <span className="w-5 h-[1px] bg-[#8A7360]" />
-              <span className="text-xs uppercase tracking-[0.22em] text-[#8A7360] font-medium font-sans">
-                Project Methodology
+            <div className="inline-flex items-center gap-3 mb-4">
+              <span className="w-8 h-[1px] bg-[#8A7360]" />
+              <span className="text-xs uppercase tracking-[0.25em] text-[#8A7360] font-medium font-sans">
+                Methodology
               </span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#1C1B19] font-normal tracking-tight">
-              From Idea To Reality.
+            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#FBF9F5] font-normal tracking-tight">
+              From Concept To Reality.
             </h2>
           </div>
-
-          <p className="text-sm text-[#706C64] font-sans max-w-md mt-4 md:mt-0">
-            A structured, disciplined progression ensuring full transparency from initial conversation through physical delivery.
-          </p>
+          
+          <div className="mt-8 lg:mt-0 lg:max-w-md">
+             <p className="text-[#A69788] text-base font-sans leading-relaxed">
+              A structured, disciplined progression ensuring full transparency from initial conversation through physical delivery and handover.
+             </p>
+          </div>
         </div>
 
         {/* 4-Step Editorial Process Timeline */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16 relative mb-24">
           {PROCESS_STEPS.map((step, idx) => (
             <div
               key={step.number}
               id={`process-step-${step.number}`}
-              className="relative flex flex-col pt-6 border-t border-[#E8E2D7] group"
+              className="relative flex flex-col group animate-fade-in-up"
+              style={{ animationDelay: `${200 + (idx * 150)}ms` }}
             >
+              <div className="h-[1px] w-full bg-[#322F2A] mb-8 relative">
+                <div className="absolute top-0 left-0 h-full w-0 bg-[#8A7360] transition-all duration-700 ease-out group-hover:w-full" />
+              </div>
+
               {/* Step indicator */}
-              <div className="flex items-center justify-between mb-4">
-                <span className="font-mono text-sm tracking-widest text-[#8A7360] font-semibold">
-                  {step.number}
+              <div className="flex items-end gap-3 mb-6">
+                <span className="font-serif text-5xl text-[#FBF9F5] opacity-20 group-hover:opacity-100 transition-opacity duration-500 leading-none">
+                  {`0${idx + 1}`}
                 </span>
-                <span className="text-[11px] uppercase tracking-[0.16em] text-[#706C64]/60">
-                  Step 0{idx + 1}
+                <span className="font-mono text-[10px] uppercase tracking-widest text-[#8A7360] font-medium mb-1.5">
+                  {step.number}
                 </span>
               </div>
 
               {/* Title */}
-              <h3 className="font-serif text-2xl text-[#1C1B19] font-normal mb-3 group-hover:text-[#8A7360] transition-colors">
+              <h3 className="font-serif text-2xl text-[#FBF9F5] font-normal mb-4 group-hover:text-[#8A7360] transition-colors duration-300">
                 {step.title}
               </h3>
 
               {/* Description */}
-              <p className="text-sm text-[#706C64] font-sans leading-relaxed">
+              <p className="text-sm text-[#A69788] font-sans leading-relaxed">
                 {step.description}
               </p>
             </div>
@@ -71,23 +78,23 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({ onStartProject }
         </div>
 
         {/* CTA Banner */}
-        <div className="mt-16 pt-10 border-t border-[#E8E2D7] flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="pt-16 border-t border-[#322F2A] flex flex-col md:flex-row items-center justify-between gap-8 animate-fade-in-up animate-delay-400">
           <div>
-            <p className="font-serif text-xl sm:text-2xl text-[#1C1B19]">
-              Ready to begin your space in Prayagraj?
+            <p className="font-serif text-3xl sm:text-4xl text-[#FBF9F5] mb-2">
+              Ready to shape your space?
             </p>
-            <p className="text-xs text-[#706C64] mt-1 font-sans">
-              Schedule an in-person site visit or studio meeting in Ashok Nagar.
+            <p className="text-sm text-[#A69788] font-sans">
+              Schedule an in-person site visit or studio meeting in Ashok Nagar, Prayagraj.
             </p>
           </div>
 
           <button
             id="process-start-project-btn"
             onClick={handleCta}
-            className="px-7 py-3.5 bg-[#1C1B19] text-[#FBF9F5] text-xs uppercase tracking-[0.14em] font-medium hover:bg-[#322F2A] transition-all duration-200 inline-flex items-center gap-2 rounded-[2px]"
+            className="px-8 py-4 bg-[#FBF9F5] text-[#1C1B19] text-xs uppercase tracking-[0.16em] font-medium hover:bg-[#8A7360] hover:text-[#FBF9F5] transition-all duration-300 inline-flex items-center gap-2 rounded-[2px]"
           >
             <span>Start Your Project</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
+            <ArrowUpRight className="w-4 h-4" />
           </button>
         </div>
 
@@ -95,3 +102,4 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({ onStartProject }
     </section>
   );
 };
+

@@ -9,9 +9,14 @@
   --color-beige: #ECE6DC;
   --color-sand: #DFD8CC;
   --color-charcoal: #1C1B19;
+  --color-charcoal-light: #2A2825;
   --color-muted: #706C64;
   --color-earth: #8A7360;
   --color-earth-dark: #6E5B4B;
+
+  --animate-fade-in-up: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-in: fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-reveal: reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @layer base {
@@ -19,13 +24,49 @@
     font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: #FBF9F5;
     color: #1C1B19;
+    scroll-behavior: smooth;
   }
   
-  h1, h2, h3, .font-editorial {
+  h1, h2, h3, h4, h5, h6, .font-editorial {
     font-family: "Cormorant Garamond", Georgia, serif;
     letter-spacing: -0.015em;
   }
 }
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes reveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
 
 /* Custom subtle scrollbar */
 ::-webkit-scrollbar {

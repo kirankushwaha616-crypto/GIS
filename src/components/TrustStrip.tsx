@@ -1,47 +1,40 @@
 import React from 'react';
+import { STUDIO_INFO } from '../data/studioData';
 
 export const TrustStrip: React.FC = () => {
   const stats = [
     {
-      primary: '5.0★',
-      secondary: 'Google Rating',
-    },
-    {
-      primary: '44+',
-      secondary: 'Google Reviews',
-    },
-    {
       primary: 'Residential',
-      secondary: 'Interiors',
+      secondary: 'Interior Design',
     },
     {
       primary: 'Commercial',
-      secondary: 'Spaces',
+      secondary: 'Office Spaces',
     },
     {
-      primary: 'Concept to',
-      secondary: 'Execution',
+      primary: 'Prayagraj',
+      secondary: 'Based Studio',
+    },
+    {
+      primary: `${STUDIO_INFO.reviewCount}+`,
+      secondary: '5.0★ Google Reviews',
     },
   ];
 
   return (
-    <section id="trust-strip" className="border-b border-[#E8E2D7] bg-[#F8F5EF]/60 py-8 lg:py-10">
+    <section id="trust-strip" className="bg-[#1C1B19] py-12 lg:py-16 border-b border-[#322F2A]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 items-center">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 divide-y divide-[#322F2A] lg:divide-y-0 lg:divide-x">
           {stats.map((item, idx) => (
             <div
               key={idx}
               id={`trust-stat-${idx + 1}`}
-              className={`flex flex-col ${
-                idx === stats.length - 1 ? 'col-span-2 md:col-span-1' : ''
-              } ${
-                idx !== 0 ? 'lg:border-l lg:border-[#E8E2D7] lg:pl-8' : ''
-              }`}
+              className={`flex flex-col items-center justify-center text-center py-6 lg:py-0 lg:px-8 border-[#322F2A]`}
             >
-              <span className="font-serif text-2xl sm:text-3xl lg:text-3xl text-[#1C1B19] font-normal tracking-tight">
+              <span className="font-serif text-2xl lg:text-3xl text-[#FBF9F5] font-normal tracking-tight mb-2">
                 {item.primary}
               </span>
-              <span className="text-xs uppercase tracking-[0.18em] text-[#706C64] font-sans mt-1">
+              <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#A69788] font-sans font-medium">
                 {item.secondary}
               </span>
             </div>
@@ -51,3 +44,4 @@ export const TrustStrip: React.FC = () => {
     </section>
   );
 };
+
