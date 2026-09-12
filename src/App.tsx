@@ -7,6 +7,7 @@ import { ServicesSection } from './components/ServicesSection';
 import { ProjectsGallery } from './components/ProjectsGallery';
 import { PhilosophySection } from './components/PhilosophySection';
 import { ProcessSection } from './components/ProcessSection';
+import { WhyChooseUs } from './components/WhyChooseUs';
 import { ReviewsSection } from './components/ReviewsSection';
 import { CtaSection } from './components/CtaSection';
 import { ContactSection } from './components/ContactSection';
@@ -14,6 +15,7 @@ import { InstagramSection } from './components/InstagramSection';
 import { Footer } from './components/Footer';
 import { Lightbox } from './components/Lightbox';
 import { MobileBottomBar } from './components/MobileBottomBar';
+import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { PROJECTS } from './data/studioData';
 
 export default function App() {
@@ -96,7 +98,10 @@ export default function App() {
         {/* 7. Process */}
         <ProcessSection onStartProject={handleConsultation} />
 
-        {/* 8. Google Reviews */}
+        {/* 8. Why Choose Us */}
+        <WhyChooseUs />
+
+        {/* 9. Google Reviews */}
         <ReviewsSection />
 
         {/* 9. Large CTA Section */}
@@ -120,6 +125,9 @@ export default function App() {
         onClose={() => setLightboxOpen(false)}
         onNavigate={(idx) => setActiveProjectIndex(idx)}
       />
+
+      {/* Floating Action Components */}
+      <FloatingWhatsApp />
 
       {/* Mobile Sticky Action Bar for quick WhatsApp/Phone/Consultation on phones */}
       <MobileBottomBar onOpenConsultation={handleConsultation} />

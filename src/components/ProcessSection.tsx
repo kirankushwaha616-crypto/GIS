@@ -1,105 +1,67 @@
 import React from 'react';
 import { PROCESS_STEPS } from '../data/studioData';
-import { ArrowUpRight } from 'lucide-react';
 
 interface ProcessSectionProps {
   onStartProject?: () => void;
 }
 
 export const ProcessSection: React.FC<ProcessSectionProps> = ({ onStartProject }) => {
-  const handleCta = () => {
-    if (onStartProject) {
-      onStartProject();
-    } else {
-      const el = document.querySelector('#contact');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <section id="process" className="py-24 lg:py-40 bg-[#1C1B19] border-b border-[#322F2A]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="process" className="py-24 lg:py-40 bg-[#FBF9F5] border-b border-[#E8E2D7] relative overflow-hidden">
+      
+      {/* Decorative background element for glass to sit on */}
+      <div className="absolute top-1/2 left-0 w-full h-[1px] bg-[#E8E2D7] z-0 hidden lg:block" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 animate-fade-in-up">
-          <div>
-            <div className="inline-flex items-center gap-3 mb-4">
-              <span className="w-8 h-[1px] bg-[#8A7360]" />
-              <span className="text-xs uppercase tracking-[0.25em] text-[#8A7360] font-medium font-sans">
-                Methodology
-              </span>
-            </div>
-            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#FBF9F5] font-normal tracking-tight">
-              From Concept To Reality.
-            </h2>
+        <div className="text-center max-w-3xl mx-auto mb-20 lg:mb-28 animate-fade-in-up">
+          <div className="inline-flex items-center gap-3 mb-6 justify-center">
+            <span className="w-8 h-[1px] bg-[#8A7360]" />
+            <span className="text-[10px] uppercase tracking-[0.25em] text-[#8A7360] font-medium font-sans">
+              Methodology
+            </span>
+            <span className="w-8 h-[1px] bg-[#8A7360]" />
           </div>
           
-          <div className="mt-8 lg:mt-0 lg:max-w-md">
-             <p className="text-[#A69788] text-base font-sans leading-relaxed">
-              A structured, disciplined progression ensuring full transparency from initial conversation through physical delivery and handover.
-             </p>
-          </div>
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-7xl text-[#1C1B19] font-normal tracking-tight">
+            From Idea To Reality.
+          </h2>
         </div>
 
         {/* 4-Step Editorial Process Timeline */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16 relative mb-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 relative">
           {PROCESS_STEPS.map((step, idx) => (
             <div
               key={step.number}
               id={`process-step-${step.number}`}
-              className="relative flex flex-col group animate-fade-in-up"
-              style={{ animationDelay: `${200 + (idx * 150)}ms` }}
+              className="group flex flex-col p-8 sm:p-10 bg-white/60 backdrop-blur-md border border-[#E8E2D7] shadow-[0_4px_24px_rgba(28,27,25,0.02)] rounded-[2px] hover:-translate-y-2 transition-all duration-500 animate-fade-in-up"
+              style={{ animationDelay: `${100 + (idx * 150)}ms` }}
             >
-              <div className="h-[1px] w-full bg-[#322F2A] mb-8 relative">
-                <div className="absolute top-0 left-0 h-full w-0 bg-[#8A7360] transition-all duration-700 ease-out group-hover:w-full" />
-              </div>
-
               {/* Step indicator */}
-              <div className="flex items-end gap-3 mb-6">
-                <span className="font-serif text-5xl text-[#FBF9F5] opacity-20 group-hover:opacity-100 transition-opacity duration-500 leading-none">
-                  {`0${idx + 1}`}
+              <div className="flex items-start justify-between mb-16">
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#8A7360] font-medium border border-[#E8E2D7] px-3 py-1 rounded-[1px]">
+                  Step {step.number}
                 </span>
-                <span className="font-mono text-[10px] uppercase tracking-widest text-[#8A7360] font-medium mb-1.5">
-                  {step.number}
+                <span className="font-serif text-5xl lg:text-6xl text-[#E8E2D7] group-hover:text-[#8A7360] transition-colors duration-500 leading-none">
+                  0{idx + 1}
                 </span>
               </div>
-
-              {/* Title */}
-              <h3 className="font-serif text-2xl text-[#FBF9F5] font-normal mb-4 group-hover:text-[#8A7360] transition-colors duration-300">
-                {step.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-sm text-[#A69788] font-sans leading-relaxed">
-                {step.description}
-              </p>
+              
+              {/* Title & Description */}
+              <div>
+                <h3 className="font-serif text-2xl lg:text-3xl text-[#1C1B19] font-normal mb-4">
+                  {step.title}
+                </h3>
+                <p className="text-sm text-[#706C64] font-sans leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
             </div>
           ))}
-        </div>
-
-        {/* CTA Banner */}
-        <div className="pt-16 border-t border-[#322F2A] flex flex-col md:flex-row items-center justify-between gap-8 animate-fade-in-up animate-delay-400">
-          <div>
-            <p className="font-serif text-3xl sm:text-4xl text-[#FBF9F5] mb-2">
-              Ready to shape your space?
-            </p>
-            <p className="text-sm text-[#A69788] font-sans">
-              Schedule an in-person site visit or studio meeting in Ashok Nagar, Prayagraj.
-            </p>
-          </div>
-
-          <button
-            id="process-start-project-btn"
-            onClick={handleCta}
-            className="px-8 py-4 bg-[#FBF9F5] text-[#1C1B19] text-xs uppercase tracking-[0.16em] font-medium hover:bg-[#8A7360] hover:text-[#FBF9F5] transition-all duration-300 inline-flex items-center gap-2 rounded-[2px]"
-          >
-            <span>Start Your Project</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </button>
         </div>
 
       </div>
     </section>
   );
 };
-

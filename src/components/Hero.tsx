@@ -62,16 +62,16 @@ export const Hero: React.FC<HeroProps> = ({
               </button>
             </div>
             
-            <div className="mt-12 lg:mt-16 flex items-center gap-6 animate-fade-in-up animate-delay-200">
-             <div className="flex -space-x-3">
-                 <img src="/assets/images/image-2.jpg" alt="Detail" className="w-10 h-10 rounded-full border-2 border-[#FBF9F5] object-cover filter grayscale opacity-70" />
-                 <img src="/assets/images/image-3.jpg" alt="Detail" className="w-10 h-10 rounded-full border-2 border-[#FBF9F5] object-cover filter grayscale opacity-80" />
-                 <img src="/assets/images/image-5.jpg" alt="Detail" className="w-10 h-10 rounded-full border-2 border-[#FBF9F5] object-cover filter grayscale opacity-90" />
+            {/* Trust Indicator */}
+          <div className="mt-12 lg:mt-16 flex items-center gap-6 animate-fade-in-up animate-delay-200">
+             <div className="flex flex-col">
+                <span className="text-[#1C1B19] text-sm tracking-[0.2em] mb-1">★★★★★</span>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-[#706C64] font-medium">
+                  5.0 Google Rating <br/> 44 Reviews
+                </p>
              </div>
-             <p className="text-[10px] uppercase tracking-[0.2em] text-[#706C64] font-medium leading-relaxed">
-               Interior Design • Planning <br/> Execution
-             </p>
           </div>
+
           </div>
 
           {/* Subtly Masked Image Area */}
@@ -97,16 +97,14 @@ export const Hero: React.FC<HeroProps> = ({
               </div>
             </div>
 
-            {/* Floating Detail Badge */}
-            <div className="absolute -bottom-6 -left-6 bg-[#FBF9F5] border border-[#E8E2D7] p-5 rounded-[2px] shadow-[0_8px_30px_rgba(28,27,25,0.06)] hidden sm:block animate-fade-in-up animate-delay-400">
-              <div className="flex flex-col">
-                <span className="font-serif text-3xl text-[#1C1B19] leading-none mb-1">Prayagraj</span>
-                <span className="text-[10px] uppercase tracking-[0.2em] text-[#8A7360] font-sans">
-                  Turnkey Execution
-                </span>
+            {/* Floating Glass Information Card */}
+            <div className="absolute -bottom-6 -left-6 bg-white/60 backdrop-blur-md border border-white/40 p-6 rounded-md shadow-[0_8px_30px_rgba(28,27,25,0.08)] hidden sm:block animate-fade-in-up animate-delay-400">
+              <div className="flex flex-col gap-2">
+                <span className="text-xs uppercase tracking-[0.2em] text-[#1C1B19] font-medium">Interior Design</span>
+                <span className="text-xs uppercase tracking-[0.2em] text-[#1C1B19] font-medium">Planning</span>
+                <span className="text-xs uppercase tracking-[0.2em] text-[#1C1B19] font-medium">Execution</span>
               </div>
             </div>
-
           </div>
         </div>
       </div>
